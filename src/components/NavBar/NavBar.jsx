@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
 const NavBar =()=>{
@@ -9,6 +10,7 @@ const NavBar =()=>{
     <nav className="navbar navbar-dark bg-dark fixed-top">
   <div className="container-fluid">
     <a className="navbar-brand" href="/">Offcanvas dark navbar</a>
+    
     <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
       <span className="navbar-toggler-icon"></span>
     </button>

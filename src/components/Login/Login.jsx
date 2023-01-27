@@ -18,7 +18,7 @@ const Login =()=>{
         e.preventDefault();
         axios
           .post(
-            'http://localhost:3001/api/users/login',
+            'http://localhost:5000/api/user/login',
             { email: email, password: password },
             { withCredentials: true },
           )
@@ -27,7 +27,9 @@ const Login =()=>{
             navigate('/');
             alert('Congratulations successful Log in!');
           })
-          .catch(() => alert('Wrong Log in, please try again'));
+          .catch((err) => {
+            console.log(err)
+            alert('Wrong Log in, please try again')});
          
       }
 
