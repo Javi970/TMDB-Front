@@ -1,29 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Home from "./components/Home/Home"
+import Home from './components/Home/Home'
 import Login from './components/Login/Login'
 import SignUp from './components/SignUp/SignUp'
 
 import './App.css'
 import NavBar from './components/NavBar/NavBar'
 import { Route, Routes } from 'react-router'
-import { setUser } from './store/user'
-import { useSelector } from 'react-redux'
+import { userLogin } from './store/user'
+import { useDispatch, useSelector } from 'react-redux'
 
 function App() {
-  
+  const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
-  console.log(user.id)
 
-  
-
-
+  useEffect(() => {
+    axios
+      .get('http://localhost:5000/api/user/me', { withCredentials: true })
+      .then((res) => dispatch(userLogin(res.data)))
+      .catch((err) => console.log(err))
+  }, []);
 
   return (
     <div>
       <NavBar />
       <Routes>
-      {user.id ? (
+        {user.id ? (
           <>
             {/* <Route path="/profile" element={<Profile />} />
             <Route path="/logout" element={<Logout />} />

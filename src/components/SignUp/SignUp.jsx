@@ -32,7 +32,7 @@ const SignUp = () => {
         navigate('/login')
         alert('Congratulations successful registration!')
       })
-      .catch(() => alert('Wrong registration, please try again'))
+      .catch((err) => alert('Wrong registration, please try again'))
   }
 
   return (
